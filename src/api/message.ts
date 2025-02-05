@@ -1,4 +1,4 @@
-import { HOST } from '../constants';
+import { apiUrl } from '../constants';
 import { ICredentials } from './account';
 import { INotification } from './type';
 
@@ -17,7 +17,7 @@ interface IBodyMessage {
 const sendMessage = async (data: IBodyMessage) => {
 	try {
 		const response = await fetch(
-			`${HOST}/waInstance${credentials.idInstance}/sendMessage/${credentials.apiTokenInstance}`,
+			`${apiUrl}/waInstance${credentials.idInstance}/sendMessage/${credentials.apiTokenInstance}`,
 			{
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -35,7 +35,7 @@ const sendMessage = async (data: IBodyMessage) => {
 
 const receiveNotification = async (): Promise<INotification | undefined | null> => {
 	const response = await fetch(
-		`${HOST}/waInstance${credentials.idInstance}/receiveNotification/${credentials.apiTokenInstance}`
+		`${apiUrl}/waInstance${credentials.idInstance}/receiveNotification/${credentials.apiTokenInstance}`
 	);
 	const result = await response.json();
 
@@ -45,7 +45,7 @@ const receiveNotification = async (): Promise<INotification | undefined | null> 
 const deleteNotification = async (receiptId: number) => {
 	try {
 		const response = await fetch(
-			`${HOST}/waInstance${credentials.idInstance}/deleteNotification/${credentials.apiTokenInstance}/${receiptId}`,
+			`${apiUrl}/waInstance${credentials.idInstance}/deleteNotification/${credentials.apiTokenInstance}/${receiptId}`,
 			{
 				method: 'DELETE',
 			}
