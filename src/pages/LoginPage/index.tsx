@@ -11,6 +11,7 @@ export const LoginPage = () => {
 
 	const submitHandler = (e: SyntheticEvent) => {
 		e.preventDefault();
+		fetch('');
 		getSettings({ idInstance, apiTokenInstance })
 			.then(() => {
 				localStorage.setItem(
@@ -40,16 +41,16 @@ export const LoginPage = () => {
 					<input
 						className={styles.input}
 						required
-						type='text'
-						placeholder='idInstance'
+						type="text"
+						placeholder="idInstance"
 						value={idInstance}
 						onChange={(e) => setIdInstance(e.target.value)}
 					/>
 					<input
 						className={styles.input}
 						required
-						type='password'
-						placeholder='apiTokenInstance'
+						type="password"
+						placeholder="apiTokenInstance"
 						value={apiTokenInstance}
 						onChange={(e) => setApiTokenInstance(e.target.value)}
 					/>
