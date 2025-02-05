@@ -2,10 +2,14 @@ import { apiUrl } from '../constants';
 import { ICredentials } from './account';
 import { INotification } from './type';
 
-const user = localStorage.getItem('user');
+const user = localStorage.user;
+const user1 = localStorage.getItem('user');
 
 let credentials: ICredentials;
 if (user) {
+	console.log(user);
+	console.log(user1);
+
 	credentials = JSON.parse(user);
 }
 
