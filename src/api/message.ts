@@ -1,17 +1,6 @@
 import { apiUrl } from '../constants';
-import { ICredentials } from './account';
+import { getUserFromLocalStorage } from '../utils/getUserFromLocalStorage';
 import { INotification } from './type';
-
-const user = localStorage.user;
-const user1 = localStorage.getItem('user');
-
-let credentials: ICredentials;
-if (user) {
-	console.log(user);
-	console.log(user1);
-
-	credentials = JSON.parse(user);
-}
 
 interface IBodyMessage {
 	chatId: string;
@@ -19,6 +8,9 @@ interface IBodyMessage {
 }
 
 const sendMessage = async (data: IBodyMessage) => {
+	const credentials = getUserFromLocalStorage();
+	if (!credentials) return;
+
 	try {
 		const response = await fetch(
 			`${apiUrl}/waInstance${credentials.idInstance}/sendMessage/${credentials.apiTokenInstance}`,
@@ -38,6 +30,9 @@ const sendMessage = async (data: IBodyMessage) => {
 };
 
 const receiveNotification = async (): Promise<INotification | undefined | null> => {
+	const credentials = getUserFromLocalStorage();
+	if (!credentials) return;
+
 	const response = await fetch(
 		`${apiUrl}/waInstance${credentials.idInstance}/receiveNotification/${credentials.apiTokenInstance}`
 	);
@@ -47,6 +42,9 @@ const receiveNotification = async (): Promise<INotification | undefined | null> 
 };
 
 const deleteNotification = async (receiptId: number) => {
+	const credentials = getUserFromLocalStorage();
+	if (!credentials) return;
+
 	try {
 		const response = await fetch(
 			`${apiUrl}/waInstance${credentials.idInstance}/deleteNotification/${credentials.apiTokenInstance}/${receiptId}`,
