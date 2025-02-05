@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--background-box);
+	height: calc(100vh - 4rem);
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	padding: 1rem;
+}
+
+.form {
+	display: flex;
+	justify-content: center;
+}
+
+.chats {
+	list-style: none;
+}
+
+.wrap {
+	flex-grow: 1;
+	overflow-y: auto;
+}

@@ -1,0 +1,15 @@
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input {
+	border: 1px solid var(--border-color);
+	/* background-color: var(--primary-light); */
+	border-radius: 5px;
+	padding: 0.4em 1rem;
+	&:focus {
+		border-color: var(--primary);
+	}
+}

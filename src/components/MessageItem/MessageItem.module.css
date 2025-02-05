@@ -1,0 +1,28 @@
+.message {
+	display: flex;
+	gap: 1rem;
+	background-color: var(--background-box);
+	padding: 0.2rem 1.5rem;
+	border-radius: 10px;
+	max-width: 70%;
+}
+
+.incoming {
+	align-self: flex-start;
+	border-top-left-radius: 0;
+}
+
+.outgoing {
+	align-self: flex-end;
+	border-bottom-right-radius: 0;
+}
+
+.content {
+	padding: 0.4rem 0;
+}
+
+.time {
+	font-size: 0.7rem;
+	color: var(--secondary-text);
+	align-self: flex-end;
+}

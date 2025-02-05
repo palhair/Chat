@@ -1,0 +1,10 @@
+.item {
+	text-align: left;
+	padding: 0.8rem 1rem;
+	&:hover {
+		background-color: var(--active);
+	}
+}
+.active {
+	background-color: var(--active);
+}

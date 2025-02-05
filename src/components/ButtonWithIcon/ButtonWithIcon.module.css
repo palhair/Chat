@@ -1,0 +1,6 @@
+.button {
+	display: flex;
+	border: none;
+	background-color: inherit;
+	cursor: pointer;
+}
